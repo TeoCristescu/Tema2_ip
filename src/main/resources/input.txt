@@ -1,0 +1,5 @@
+NAME        CODE
+Razvilka    RU
+Moscow      RU
+Tarascon    FR
+Ploufragan  FR
