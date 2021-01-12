@@ -57,8 +57,6 @@ public class WeatherController {
     @FXML
     private ComboBox cities_fxml;
     @FXML
-    private Button show;
-    @FXML
     private Label temp_f_fxml;
     @FXML
     private Label visibility_fxml;
@@ -68,6 +66,11 @@ public class WeatherController {
     private Label humidity_fxml;
     @FXML
     private Label temp_c_fxml;
+    @FXML
+    private Label oras_fxml;
+    @FXML
+    private Label data_ora_fxml;
+
     @FXML
     private ImageView poza_fxml;
 
@@ -107,13 +110,15 @@ public class WeatherController {
         this.selected_country=(String) countries_fxml.getValue();
     }
     @FXML
-    private void oras_selectat()
-    {
+    private void oras_selectat() throws IOException, ParseException {
         this.selected_city=(String) cities_fxml.getValue();
+        if(this.selected_city!=null) {
+            show();
+        }
     }
 
-    @FXML
-    public void handler_buton() throws IOException, ParseException {
+
+    public void show() throws IOException, ParseException {
         Api_Req request=new Api_Req(selected_city);
         StringBuffer JSON=request.get_JSON();
         JsonParser y=new JsonParser(JSON);
@@ -126,7 +131,8 @@ public class WeatherController {
         temp_c_fxml.setText(x.get_temp_c().toString());
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
-        System.out.println(dtf.format(now));
+        data_ora_fxml.setText(dtf.format(now));
+        oras_fxml.setText(selected_city);
         Image image;
         switch(x.get_main()) {
             case "Snow":
@@ -143,6 +149,15 @@ public class WeatherController {
                 image = new Image("sun.png");;
         }
         poza_fxml.setImage(image);
+
+
+
+       String history= dtf.format(now) + " City :"+ selected_city + " " +x.get_main()+ " Temp F.:"+ x.get_temp_f() +" "+ "Temp C.: "+x.get_temp_c()+" Humidity: "+ x.get_humidity()+" Visibility: "+x.get_visibility() ;
+
+        FileWriter fileWriter = new FileWriter("history.txt", true);
+        PrintWriter printWriter = new PrintWriter(fileWriter);
+        printWriter.println(history);  //New line
+        printWriter.close();
 
     }
 }
