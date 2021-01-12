@@ -1,2 +1,3 @@
 2021/01/12 12:51:25 City :Razvilka Snow Temp F.:263.18 Temp C.: -9.96999999999997 Humidity: 92 Visibility: 10000
 2021/01/12 12:51:26 City :Moscow Snow Temp F.:263.15 Temp C.: -10.0 Humidity: 85 Visibility: 6000
+2021/01/12 12:58:28 City :Tarascon Clear Temp F.:279.49 Temp C.: 6.340000000000032 Humidity: 49 Visibility: 10000

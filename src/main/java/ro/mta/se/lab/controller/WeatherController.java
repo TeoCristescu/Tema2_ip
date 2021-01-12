@@ -152,7 +152,7 @@ public class WeatherController {
 
 
 
-       String history= dtf.format(now) + " City :"+ selected_city + " " +x.get_main()+ " Temp F.:"+ x.get_temp_f() +" "+ "Temp C.: "+x.get_temp_c()+" Humidity: "+ x.get_humidity()+" Visibility: "+x.get_visibility() ;
+       String history= dtf.format(now) + " City: "+ selected_city + " " +x.get_main()+ " Temp F.:"+ x.get_temp_f() +" "+ "Temp C.: "+x.get_temp_c()+" Humidity: "+ x.get_humidity()+" Visibility: "+x.get_visibility() ;
 
         FileWriter fileWriter = new FileWriter("history.txt", true);
         PrintWriter printWriter = new PrintWriter(fileWriter);
