@@ -4,7 +4,8 @@ import java.io.*;
 import java.lang.module.Configuration;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import org.json.simple.JSONArray;
@@ -43,7 +44,7 @@ public class WeatherController {
     private ObservableList<City> CityData;
     private ObservableList<String> Countries = FXCollections.observableArrayList();
 
-
+    Integer veriff=0;
     public WeatherController (ObservableList<City> CityData)
 
     {
@@ -57,6 +58,18 @@ public class WeatherController {
     private ComboBox cities_fxml;
     @FXML
     private Button show;
+    @FXML
+    private Label temp_f_fxml;
+    @FXML
+    private Label visibility_fxml;
+    @FXML
+    private Label main_fxml;
+    @FXML
+    private Label humidity_fxml;
+    @FXML
+    private Label temp_c_fxml;
+    @FXML
+    private ImageView poza_fxml;
 
     @FXML
     private void init_tari() {
@@ -105,11 +118,31 @@ public class WeatherController {
         StringBuffer JSON=request.get_JSON();
         JsonParser y=new JsonParser(JSON);
         x.set_attr(y.get_temp_f(),y.get_main(),y.get_visibility(),y.get_humidity());
-        System.out.println(x.get_main());
-        System.out.println(x.get_temp_f());
-        System.out.println(x.get_humidity());
-        System.out.println(x.get_visibility());
 
+        main_fxml.setText(x.get_main());
+        temp_f_fxml.setText(x.get_temp_f().toString());
+        visibility_fxml.setText(x.get_visibility().toString());
+        humidity_fxml.setText(x.get_humidity().toString());
+        temp_c_fxml.setText(x.get_temp_c().toString());
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println(dtf.format(now));
+        Image image;
+        switch(x.get_main()) {
+            case "Snow":
+                image = new Image("snow.jpg");
+                break;
+            case "Clear":
+                image = new Image("sun.png");
+            case "Rain":
+                image = new Image("rain.png");
+            case "Clouds":
+                image = new Image("clouds.jpg");
+                break;
+            default:
+                image = new Image("sun.png");;
+        }
+        poza_fxml.setImage(image);
 
     }
 }

@@ -1,13 +1,10 @@
 package ro.mta.se.lab.model;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-
 public class Weather {
 
 
     Double temperature_f;
-    String temperature_c;
+    Double temperature_c;
     String main_weather;
     Long visibility;
     Long humidity;
@@ -17,11 +14,12 @@ public class Weather {
         this.main_weather=main;
         this.visibility=vis;
         this.humidity=hum;
+        this.temperature_c=temp_f-273.15;
     }
     public Double get_temp_f() {
         return temperature_f;
     }
-    public String get_temp_c() {
+    public Double get_temp_c() {
         return temperature_c;
     }
     public String get_main() {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.image.ImageView?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Pane fx:id="pane" prefHeight="400.0" prefWidth="600.0">
@@ -11,6 +11,12 @@
                 <ComboBox fx:id="countries_fxml" layoutX="66.0" layoutY="70.0" onAction="#tara_selectata" onMouseClicked="#init_tari" prefWidth="150.0" />
                 <ComboBox fx:id="cities_fxml" layoutX="283.0" layoutY="70.0" onAction="#oras_selectat" onMouseClicked="#init_orase" prefWidth="150.0" />
                 <Button fx:id="show" layoutX="100.0" layoutY="128.0" mnemonicParsing="false" onMouseClicked="#handler_buton" text="da mi vreme" />
+                <Label fx:id="temp_f_fxml" layoutX="392.0" layoutY="192.0" prefHeight="17.0" prefWidth="61.0" />
+                <Label fx:id="temp_c_fxml" layoutX="392.0" layoutY="163.0" prefHeight="17.0" prefWidth="61.0" />
+                <Label fx:id="main_fxml" layoutX="392.0" layoutY="227.0" prefHeight="17.0" prefWidth="61.0" />
+                <Label fx:id="humidity_fxml" layoutX="392.0" layoutY="273.0" prefHeight="17.0" prefWidth="61.0" />
+                <Label fx:id="visibility_fxml" layoutX="392.0" layoutY="218.0" prefHeight="17.0" prefWidth="61.0" />
+                <ImageView fx:id="poza_fxml" fitHeight="150.0" fitWidth="200.0" layoutX="6.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true" />
             </children></Pane>
     </children>
 </AnchorPane>
