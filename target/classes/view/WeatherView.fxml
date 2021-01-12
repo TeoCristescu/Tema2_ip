@@ -10,9 +10,7 @@
             <children>
                 <ComboBox fx:id="countries_fxml" layoutX="66.0" layoutY="70.0" onAction="#tara_selectata" onMouseClicked="#init_tari" prefWidth="150.0" />
                 <ComboBox fx:id="cities_fxml" layoutX="283.0" layoutY="70.0" onAction="#oras_selectat" onMouseClicked="#init_orase" prefWidth="150.0" />
-                <ImageView fx:id="poza_fxml" fitHeight="150.0" fitWidth="200.0" layoutX="6.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true" />
-                <Label fx:id="desc_fxml" layoutX="380.0" layoutY="183.0" text="vreme" />
-                <Label fx:id="desc2" layoutX="399.0" layoutY="226.0" />
+                <Button fx:id="show" layoutX="100.0" layoutY="128.0" mnemonicParsing="false" onMouseClicked="#handler_buton" text="da mi vreme" />
             </children></Pane>
     </children>
 </AnchorPane>

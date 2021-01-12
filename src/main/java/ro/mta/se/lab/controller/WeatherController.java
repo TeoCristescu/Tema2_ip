@@ -30,10 +30,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import org.w3c.dom.Text;
+import ro.mta.se.lab.model.Api_Req;
 import ro.mta.se.lab.model.City;
+import ro.mta.se.lab.model.JsonParser;
+import ro.mta.se.lab.model.Weather;
 
 
 public class WeatherController {
+    private  Weather x=new Weather();
     private String selected_city;
     private String selected_country;
     private ObservableList<City> CityData;
@@ -51,6 +55,8 @@ public class WeatherController {
     private ComboBox countries_fxml;
     @FXML
     private ComboBox cities_fxml;
+    @FXML
+    private Button show;
 
     @FXML
     private void init_tari() {
@@ -93,5 +99,17 @@ public class WeatherController {
         this.selected_city=(String) cities_fxml.getValue();
     }
 
+    @FXML
+    public void handler_buton() throws IOException, ParseException {
+        Api_Req request=new Api_Req(selected_city);
+        StringBuffer JSON=request.get_JSON();
+        JsonParser y=new JsonParser(JSON);
+        x.set_attr(y.get_temp_f(),y.get_main(),y.get_visibility(),y.get_humidity());
+        System.out.println(x.get_main());
+        System.out.println(x.get_temp_f());
+        System.out.println(x.get_humidity());
+        System.out.println(x.get_visibility());
 
+
+    }
 }
