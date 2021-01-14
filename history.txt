@@ -48,3 +48,7 @@
 2021/01/14 08:56:06 City: Barcelona Clear Temp F.:278.29 Temp C.: 5.140000000000043 Humidity: 81 Visibility: 10000
 2021/01/14 08:56:08 City: Valencia Clear Temp F.:275.92 Temp C.: 2.7700000000000387 Humidity: 86 Visibility: 10000
 2021/01/14 09:21:30 City: Tarascon Clear Temp F.:279.8 Temp C.: 6.650000000000034 Humidity: 70 Visibility: 10000
+2021/01/14 09:41:25 City: Hamburg Clouds Temp F.:273.95 Temp C.: 0.8000000000000114 Humidity: 86 Visibility: 10000
+2021/01/14 10:21:59 City: Varna Clear Temp F.:273.26 Temp C.: 0.11000000000001364 Humidity: 75 Visibility: 10000
+2021/01/14 10:23:28 City: Ploufragan Rain Temp F.:283.34 Temp C.: 10.189999999999998 Humidity: 100 Visibility: 10000
+2021/01/14 10:27:01 City: Berlin Clouds Temp F.:274.18 Temp C.: 1.0300000000000296 Humidity: 86 Visibility: 10000

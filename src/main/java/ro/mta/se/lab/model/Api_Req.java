@@ -9,9 +9,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Api_Req {
+    public static StringBuffer json;
     String city;
 
-    StringBuffer json;
 
     public Api_Req( String city)
     {

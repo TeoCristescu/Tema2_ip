@@ -1,7 +1,7 @@
 package ro.mta.se.lab.model;
 import javafx.beans.property.*;
 
-public class City {
+public  class City {
     StringProperty name;
     StringProperty country_code;
     public City(String name, String country_code )
@@ -12,7 +12,7 @@ public class City {
     public String getName() {
         return name.get();
     }
-    public String get_country() {
+    public  String get_country() {
         return country_code.get();
     }
 }

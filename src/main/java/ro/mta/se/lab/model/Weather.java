@@ -3,11 +3,11 @@ package ro.mta.se.lab.model;
 public class Weather {
 
 
-    Double temperature_f;
+     Double temperature_f;
     Double temperature_c;
     String main_weather;
     Long visibility;
-    Long humidity;
+     Long humidity;
     public void set_attr(Double temp_f,Double temp_c, String main,Long vis,Long hum )
     {
         this.temperature_f=temp_f;
