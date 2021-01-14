@@ -11,7 +11,7 @@ public class WeatherTest {
     @Before
     public void setUp() {
 
-        vreme1.set_attr(300.00,26.85,"Clear",null,null);
+        vreme1.set_attr(300.00,26.85,"Clear", (long) 10000, (long) 85);
     }
     @Test
     public void get_temp_f() {
@@ -27,6 +27,7 @@ public class WeatherTest {
     public void get_main() {
         assertEquals("Clear",vreme1.get_main());
     }
+
 
 
 }

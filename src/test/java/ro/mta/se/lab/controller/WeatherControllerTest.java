@@ -9,19 +9,11 @@ import static org.junit.Assert.*;
 
 public class WeatherControllerTest {
 
-    @Before
-    public void setUp() {
-        System.out.println("Before test");
-    }
-
-    @After
-    public void tearDown(){
-        System.out.println("After test");
-    }
+WeatherController x= new WeatherController();
 
     @Test
     public void calculateC() {
-        assertEquals("M", 26.85, WeatherController.calculateC(300.00), 2);
+        assertEquals("M", 26.85,x.calculateC(300.00), 2);
 
     }
 }

@@ -74,6 +74,10 @@ public class WeatherController {
     @FXML
     private ImageView poza_fxml;
 
+    public WeatherController() {
+
+    }
+
     @FXML
     private void init_tari() {
         countries_fxml.getItems().clear();
@@ -105,7 +109,7 @@ public class WeatherController {
             show();
         }
     }
-    public static Double calculateC(Double temp_f)
+    public Double calculateC(Double temp_f)
     {
      var temp_c=temp_f-273.15;
      return temp_c;

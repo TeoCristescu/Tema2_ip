@@ -16,9 +16,7 @@ public class Api_ReqTest {
         StringBuffer JSON=request.get_JSON();
     }
 
-    @After
-    public void tearDown() throws Exception {
-    }
+
 
     @Test
     public void get_JSON() throws IOException {

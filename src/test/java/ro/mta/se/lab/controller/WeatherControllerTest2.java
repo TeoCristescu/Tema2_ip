@@ -37,6 +37,7 @@ public class WeatherControllerTest2 {
 
        Country=CityX.get_country();
         System.out.println(Country);
+
        assertEquals(Country, CityX.get_country());
        assertNotNull(Country);
     }
