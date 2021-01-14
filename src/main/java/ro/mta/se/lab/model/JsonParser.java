@@ -23,6 +23,16 @@ public class JsonParser {
         String main_desc= (String) weatherob.get("main");
         return main_desc;
     }
+    public String get_icon() throws ParseException {
+
+        JSONParser parser = new JSONParser();
+        JSONObject json2 = (JSONObject) parser.parse(String.valueOf(this.json));
+
+        JSONArray weatherArr= (JSONArray) json2.get("weather");
+        JSONObject weatherob= (JSONObject) weatherArr.get(0);
+        String icon= (String) weatherob.get("icon");
+        return icon;
+    }
     public Double get_temp_f() throws ParseException {
 
         JSONParser parser = new JSONParser();

@@ -141,20 +141,9 @@ public class WeatherController {
         oras_fxml.setText(selected_city);
         Image image;
         System.out.println(x.get_main());
-        switch(x.get_main()) {
-            case "Snow":
-                image = new Image("snow.jpg");
-                break;
-            case "Clear":
-                image = new Image("sun.png");
-            case "Rain":
-                image = new Image("rain.png");
-            case "Clouds":
-                image = new Image("clouds.jpg");
-                break;
-            default:
-                image = new Image("sun.png");;
-        }
+
+        image = new Image("https://openweathermap.org/img/wn/"+y.get_icon()+"@2x.png");
+
         poza_fxml.setImage(image);
 
 
