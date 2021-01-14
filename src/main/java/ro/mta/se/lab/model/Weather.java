@@ -8,13 +8,13 @@ public class Weather {
     String main_weather;
     Long visibility;
     Long humidity;
-    public void set_attr(Double temp_f, String main,Long vis,Long hum )
+    public void set_attr(Double temp_f,Double temp_c, String main,Long vis,Long hum )
     {
         this.temperature_f=temp_f;
         this.main_weather=main;
         this.visibility=vis;
         this.humidity=hum;
-        this.temperature_c=temp_f-273.15;
+        this.temperature_c=temp_c;
     }
     public Double get_temp_f() {
         return temperature_f;

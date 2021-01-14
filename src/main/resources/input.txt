@@ -12,9 +12,9 @@ Valencia    ES
 Milano      IT
 Palermo     IT
 Roma        IT
-Bucuresti   RO
+Bucharest   RO
 Pitesti     RO
-Brasov      Ro
+Brasov      RO
 Istanbul    TR
 Izmir       TR
 Gaziantep   TR

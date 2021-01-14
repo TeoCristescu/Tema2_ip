@@ -116,13 +116,17 @@ public class WeatherController {
             show();
         }
     }
-
+    public static Double calculateC(Double temp_f)
+    {
+     var temp_c=temp_f-273.15;
+     return temp_c;
+    }
 
     public void show() throws IOException, ParseException {
         Api_Req request=new Api_Req(selected_city);
         StringBuffer JSON=request.get_JSON();
         JsonParser y=new JsonParser(JSON);
-        x.set_attr(y.get_temp_f(),y.get_main(),y.get_visibility(),y.get_humidity());
+        x.set_attr(y.get_temp_f(),calculateC(y.get_temp_f()),y.get_main(),y.get_visibility(),y.get_humidity());
 
         main_fxml.setText(x.get_main());
         temp_f_fxml.setText(x.get_temp_f().toString());
@@ -134,6 +138,7 @@ public class WeatherController {
         data_ora_fxml.setText(dtf.format(now));
         oras_fxml.setText(selected_city);
         Image image;
+        System.out.println(x.get_main());
         switch(x.get_main()) {
             case "Snow":
                 image = new Image("snow.jpg");
