@@ -78,18 +78,7 @@ public class WeatherController {
     private void init_tari() {
         countries_fxml.getItems().clear();
         cities_fxml.getItems().clear();
-        for (City X : CityData) {
-            var ok = 1;
-            for (String count : Countries) {
-                if (count.equals(X.get_country())) {
-                    ok = 0;
-                }
-            }
-
-            if (ok == 1) {
-                Countries.add(X.get_country());
-            }
-        }
+        get_countries();
         countries_fxml.getItems().addAll(Countries);
     }
 
@@ -121,7 +110,20 @@ public class WeatherController {
      var temp_c=temp_f-273.15;
      return temp_c;
     }
+    public void get_countries() {
+        for (City X : CityData) {
+            var ok = 1;
+            for (String count : Countries) {
+                if (count.equals(X.get_country())) {
+                    ok = 0;
+                }
+            }
 
+            if (ok == 1) {
+                Countries.add(X.get_country());
+            }
+        }
+    }
     public void show() throws IOException, ParseException {
         Api_Req request=new Api_Req(selected_city);
         StringBuffer JSON=request.get_JSON();
