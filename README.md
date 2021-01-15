@@ -19,3 +19,5 @@ Utilizatorul va selecta tara si orasul cu ajutorul a doua liste din interfata gr
 Fisierul de intrare trebuie sa contina numele oraselor si tarile de unde provin.
 Acesta are numele "input.txt".
 Fisierul unde sunt salvate detaliile despre vreme din orasele selectate se numeste "history.txt"
+##### Realizator aplicatiei
+Cristescu Teodor C-114A
