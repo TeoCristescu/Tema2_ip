@@ -36,22 +36,27 @@ import ro.mta.se.lab.model.City;
 import ro.mta.se.lab.model.JsonParser;
 import ro.mta.se.lab.model.Weather;
 
-
+/**
+ * @author Teo Cristescu
+ * Clasa WeatherController este un controller pentru modelul MVC si este practic legatura dintre model si view
+ */
 public class WeatherController {
+    /**
+     * membrul Weather x este folosit pentru a tine evidenta vremii intr un oras
+     * membrul selected_city reprezinta orasul selectat de utilizator
+     * membrul selected_country reprezinta tara selecata de utilizator
+     * membrul CityData reprezinta orasele citite din fisier
+     * membrul Countries reprezinta tarile oraselor citite din fisier
+     * membrul countries_fxml este combobox-ul pentru alegerea tarii din interfata grafica
+     * membrul cities_fxml este combobox-ul pentru alegerea orasului din interfata grafica
+     * label-urile temp_f_fxml,temp_c_fxml,visibility_fxml,main_fxml,humidity_fxml,oras_fxml,data_ora_fxml sunt folosite pentru a afisa in ele detalii
+     * label-ul image este folosit pentru a afisa poza sugestiva vremii din orasul selectat
+     */
     private  Weather x=new Weather();
     private String selected_city;
     private String selected_country;
     private ObservableList<City> CityData;
     private ObservableList<String> Countries = FXCollections.observableArrayList();
-
-    Integer veriff=0;
-    public WeatherController (ObservableList<City> CityData)
-
-    {
-        this.CityData = CityData;
-    }
-
-
     @FXML
     private ComboBox countries_fxml;
     @FXML
@@ -74,10 +79,27 @@ public class WeatherController {
     @FXML
     private ImageView poza_fxml;
 
+    /**
+     * constructor pentur clasa WeatherController
+     * @param CityData reprezinta orasele citite din fisier si transmise mai departe pentru a fi prelucrate
+     */
+    public WeatherController (ObservableList<City> CityData)
+
+    {
+        this.CityData = CityData;
+    }
+
+
+    /**
+     * constructor pentru clasa WeatherController
+     */
     public WeatherController() {
 
     }
 
+    /**
+     * Functia care va afisa tarile in GUI
+     */
     @FXML
     private void init_tari() {
         countries_fxml.getItems().clear();
@@ -86,6 +108,9 @@ public class WeatherController {
         countries_fxml.getItems().addAll(Countries);
     }
 
+    /**
+     * Functia care va afisa orasele in GUI
+     */
     @FXML
     private void init_orase() {
         cities_fxml.getItems().clear();
@@ -97,11 +122,18 @@ public class WeatherController {
         }
     }
 
+    /**
+     * functie care va pune in selected_country valoarea selectata de utilizator in GUI
+     */
     @FXML
     private void tara_selectata()
     {
         this.selected_country=(String) countries_fxml.getValue();
     }
+
+    /**
+     *     functie care va pune in selected_city valoarea selectata de utilizator in GUI
+     */
     @FXML
     private void oras_selectat() throws IOException, ParseException {
         this.selected_city=(String) cities_fxml.getValue();
@@ -109,11 +141,21 @@ public class WeatherController {
             show();
         }
     }
+
+    /**
+     * Functie care va face conversia din grade K in grade C
+     * @param temp_f reprezinta temperatura in grade K
+     * @return
+     */
     public Double calculateC(Double temp_f)
     {
      var temp_c=temp_f-273.15;
      return temp_c;
     }
+
+    /**
+     * Functia care va popula lista de tari pe baza oraselor din fisier, fiecare tara va fi introdusa o singura data
+     */
     public void get_countries() {
         for (City X : CityData) {
             var ok = 1;
@@ -128,6 +170,19 @@ public class WeatherController {
             }
         }
     }
+
+    /**
+     * Aceasta functie este apelata dupa ce tara si orasul au fost selectate
+     * Functia populeaza interfata grafica cu detalii despre orasul selectat in functie de vremea de acolo
+     * Mai intai se va crea un request catrea Weather API
+     * Raspunsul va fi parsat
+     * Obiectul de tip Weather va fi initializat
+     * Din acest obiect se vor afisa apoi detaliile despre vreme
+     * De asemenea, imaginea folosita pentru a ilustra vremea este tot de la API
+     * In continuare, sunt scrise in fisier detaliile despre vremea din orasul ales
+     * @throws IOException
+     * @throws ParseException
+     */
     public void show() throws IOException, ParseException {
         Api_Req request=new Api_Req(selected_city);
         StringBuffer JSON=request.get_JSON();

@@ -15,13 +15,25 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Scanner;
 
+/**
+ * @author Teo Cristescu
+ * clasa aceasta realizeaza citirea oraselor din fisier si pornirea efectiva a aplicatiei prin initializarea controller-ului si a scenei(view)
+ */
 
 public class Main extends Application {
+    /**
+     * membrul CityData reprezinta lista de orase citite din fisier
+     */
     private ObservableList<City> CityData = FXCollections.observableArrayList();
     public static void main(String[] args)
     {
         launch(args);
     }
+
+    /**
+     * Functia realizeaza initializarea listei de orase pe baza fisierului de intrare
+     */
+
     public void initCity()
     {
         try {
@@ -43,6 +55,10 @@ public class Main extends Application {
 
     }
 
+    /**
+     * Realizeaza pornirea aplicatiei pe modelul mvc
+     * @param primaryStage
+     */
     public void start(Stage primaryStage) {
         initCity();
         FXMLLoader loader = new FXMLLoader();
