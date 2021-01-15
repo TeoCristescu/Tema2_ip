@@ -1,3 +1,4 @@
+
 ### Aplicație pentru monitorizare meteorologică
 ##### Descrierea aplicatiei
 
